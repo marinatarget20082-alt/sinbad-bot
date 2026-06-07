@@ -8,7 +8,10 @@ const MANAGER_CHAT_ID = process.env.MANAGER_CHAT_ID || '';
 // =====================
 
 const bot = new TelegramBot(TELEGRAM_TOKEN, { polling: true });
-const openai = new OpenAI({ apiKey: OPENAI_KEY });
+const openai = new OpenAI({ 
+  apiKey: OPENAI_KEY,
+  baseURL: 'https://api.apinet.cloud/v1'
+});
 
 const conversations = {};
 
