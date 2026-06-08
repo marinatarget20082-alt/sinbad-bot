@@ -1,16 +1,11 @@
 {
   "name": "sinbad-tours-bot",
   "version": "1.0.0",
-  "description": "Sinbad Tours Telegram Bot with GPT-4o-mini",
   "main": "bot.js",
-  "scripts": {
-    "start": "node bot.js"
-  },
+  "scripts": { "start": "node bot.js" },
   "dependencies": {
     "node-telegram-bot-api": "^0.66.0",
-    "openai": "^4.47.0"
+    "groq-sdk": "^0.5.0"
   },
-  "engines": {
-    "node": ">=18.0.0"
-  }
+  "engines": { "node": ">=18.0.0" }
 }
