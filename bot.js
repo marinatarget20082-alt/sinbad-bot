@@ -76,10 +76,14 @@ bot.on('message', async (msg) => {
     const reply = res.choices[0].message.content;
     conversations[chatId].push({ role: 'assistant', content: reply });
 
-    const clean = reply.replace('[READY TO BOOK]', '').trim();
+    const clean = reply
+      .replace('[READY TO BOOK]', '')
+      .replace('READY TO BOOK', '')
+      .trim();
     await bot.sendMessage(chatId, clean);
 
-    if (reply.includes('[READY TO BOOK]') && MANAGER_CHAT_ID) {
+    const isReady = reply.includes('[READY TO BOOK]') || reply.includes('READY TO BOOK');
+    if (isReady && MANAGER_CHAT_ID) {
       const name = msg.from.first_name || 'Client';
       const handle = msg.from.username ? `@${msg.from.username}` : '—';
       await bot.sendMessage(MANAGER_CHAT_ID,
